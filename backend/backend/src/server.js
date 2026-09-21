@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const userRoutes = require("./routes/userRoutes");
+const skinRoutes = require("./routes/skinRoutes");
 
 const app = express();
 
@@ -10,14 +10,14 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ mensagem: "API de usuários funcionando" });
+  res.json({ mensagem: "API de skins do Brawl Stars funcionando" });
 });
 
-app.use("/usuarios", userRoutes);
+app.use("/skins", skinRoutes);
 
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/crud_usuarios";
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/crud_skins_brawlstars";
 
 mongoose
   .connect(MONGODB_URI)
